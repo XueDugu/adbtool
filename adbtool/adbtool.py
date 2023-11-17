@@ -47,6 +47,7 @@ button_stack = []
 run_stack=[]
 
 def repeat_last_command(repeat_count_entry):
+    #用来处理输入的数据
     try:
         repeat_count = int(repeat_count_entry.get())
         repeat_count = max(1, repeat_count)
@@ -109,6 +110,7 @@ def retap(retap_count_entry):
     try:
         retap_count = int(retap_count_entry.get())
         retap_count = max(1, retap_count)
+        retap_count = min(600, retap_count)
     except ValueError:
         retap_count = 10
 
