@@ -15,6 +15,8 @@ def run_adb_command(command):
         print(f"发生未知错误：{e}")
 
 # 执行adb命令
+adb_command = f"adb shell adb shell input keyevent 3"
+run_adb_command(adb_command)
 package_name = "com.github.kr328.clash"
 activity_name = "com.github.kr328.clash.MainActivity"
 command = f'adb shell su -c "am start -n {package_name}/{activity_name}"'
