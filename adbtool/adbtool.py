@@ -40,7 +40,9 @@ adb_commands = {
     "Burp Open": "adb_burpopen.py",
     "Burp Close": "adb_burpclose.py",
     "Unlock": "adb_unlock.py",
+    "Scrolling Screenshot": "adb_screenshot"
 }
+
 button_style = get_button_style()
 
 # 使用栈来记录用户点击的按钮
@@ -244,7 +246,11 @@ delete_count_entry.grid(row=len(adb_commands) // 2 + 5, column=2, pady=10)
 delete_btn = tk.Button(root, text="Delete Stack", command=lambda: delete_stack_commands(delete_count_entry), **button_style)
 delete_btn.grid(row=len(adb_commands) // 2 + 5, column=3, pady=10)
 
-# 切换Retap函数
+"""
+切换 `retap_btn` 的显示内容，可以在"Retap Time"和"Retap Count"之间切换。
+如果当前的显示内容是"Retap Time"，则将显示内容改为"Retap Count"，并将`retap_count(retap_count_entry)`作为`retap_btn`的命令。
+如果当前的显示内容不是"Retap Time"，则将显示内容改为"Retap Time"，并将`retap_time(retap_count_entry)`作为`retap_btn`的命令。
+"""
 def switch_display():
     current_text = retap_btn.cget("text")
     if current_text == "Retap Time":
@@ -262,7 +268,23 @@ retap_count_entry.grid(row=len(adb_commands) // 2 + 6, column=2, padx=10, pady=1
 retap_btn = tk.Button(root, text="Retap Time", command=lambda: retap_time(retap_count_entry), **button_style)
 retap_btn.grid(row=len(adb_commands) // 2 + 6, column=3, padx=10, pady=10)
 
-# 记录操作并存储在按钮中
+"""
+创建一个新的按钮小部件并将其添加到根窗口。
+
+参数:
+- root: 根窗口，按钮将被添加到其中。
+- adb_commands: adb命令的列表。
+- button_style: 包含按钮样式属性的字典。
+- create_count_entry: 用于指定按钮名称的输入小部件。
+- retap_count_entry: 用于指定点击次数的输入小部件。
+- tap35: 存储x坐标的触摸事件列表。
+- tap36: 存储y坐标的触摸事件列表。
+- button_stack: 存储按钮名称的堆栈。
+- function: 存储重放触摸事件的lambda函数的列表。
+
+返回值:
+无
+"""
 def create_new_button(root, adb_commands, button_style, create_count_entry, retap_count_entry, tap35, tap36, button_stack, function):
     global create_num
     if create_count_entry.get() == "":
