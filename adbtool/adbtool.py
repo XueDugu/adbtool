@@ -33,8 +33,9 @@ def clear_text_box():
 
 adb_commands = {
     "Log": "adb_log.py",
-    "Back": "adb_back.py",
     "Reverse": "adb_reverse.py",
+    "Back": "adb_back.py",
+    "Home": "adb_home.py",
     "Monitor": "adb_activity.py",
     "Burp Open": "adb_burpopen.py",
     "Burp Close": "adb_burpclose.py",
