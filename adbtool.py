@@ -3,6 +3,7 @@ import re
 import time
 import tkinter as tk
 import subprocess
+from tkinter import scrolledtext  
 
 # 运行按钮
 def run_adb_command(command, success_message):
@@ -24,7 +25,7 @@ root.title("adb工具")
 text_label = tk.Label(root, text="记录栏", font=('Helvetica', 12, 'bold'))
 text_label.grid(row=0, column=2, columnspan=2, pady=10)
 
-text_box = tk.Text(root, height=15, width=50)
+text_box = scrolledtext.ScrolledText(root, height=15, width=50)
 text_box.grid(row=1, column=2, rowspan=3, columnspan=2, padx=10, pady=10)
 
 # 清除记录栏
@@ -41,7 +42,7 @@ adb_commands = {
     "Burp Close": "adb_burpclose.py",
     "Unlock": "adb_unlock.py",
     "Screenshot":"adb_screenshot.py",
-    "Scrolling Screenshot": "adb_scrollscreenshot.py",
+    "Scrolling Screenshot": "adb_screenshot.py",
     "Frida-Server Open":"adb_fridaopen.py",
     "Background App":"adb_backgroundapp.py"
 }
