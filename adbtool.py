@@ -40,8 +40,10 @@ adb_commands = {
     "Burp Open": "adb_burpopen.py",
     "Burp Close": "adb_burpclose.py",
     "Unlock": "adb_unlock.py",
-    "Scrolling Screenshot": "adb_screenshot.py",
-    "Frida-Server Open":"adb_fridaopen.py"
+    "Screenshot":"adb_screenshot.py",
+    "Scrolling Screenshot": "adb_scrollscreenshot.py",
+    "Frida-Server Open":"adb_fridaopen.py",
+    "Background App":"adb_backgroundapp.py"
 }
 
 button_style = get_button_style()
