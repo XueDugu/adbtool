@@ -10,6 +10,5 @@ def run_adb_command(command):
     except subprocess.CalledProcessError as e:
         print(f"命令执行失败：{e}")
 
-command='su -c "screencap -p /sdcard/Pictures/adbshot.png"'
+command='su -c "input keyevent KEYCODE_APP_SWITCH"'
 run_adb_command(command)
-
